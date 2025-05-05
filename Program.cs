@@ -1,7 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using MVCRefresher;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Dependency Injections 
+//Note: The squlServer string is likely off.
+builder.Services.AddDbContext<ApplicationDbContext>(
+    options => options.UseSqlServer(
+        builder.Configuration.GetConnectionString("TestUserPortal")
+    )
+);
 
 var app = builder.Build();
 
