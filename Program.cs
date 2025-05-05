@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //Dependency Injections 
-//Note: The squlServer string is likely off.
+//Note: The sqlServer string is likely off.
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(
         builder.Configuration.GetConnectionString("TestUserPortal")
